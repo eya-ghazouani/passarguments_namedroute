@@ -54,12 +54,22 @@ class _MyHomePageState extends State<MyHomePage> {
 
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            ElevatedButton(
+              onPressed: () {
+                // When the user taps the button,
+                // navigate to a named route and
+                // provide the arguments as an optional
+                // parameter.
+                Navigator.pushNamed(
+                  context,
+                  ExtractArgumentsScreen.routeName,
+                  arguments: ScreenArguments(
+                    'Extract Arguments Screen',
+                    'This message is extracted in the build method.',
+                  ),
+                );
+              },
+              child: const Text('Navigate to screen that extracts arguments'),
             ),
           ],
         ),
